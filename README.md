@@ -4,4 +4,6 @@ A steady-state zero dimensional model of argon-hydrogen plasma seeded with coppe
 
 Th model consists of four modules which iteratively solve for plasma parameters given known value of particle density and radius. The model accounts for the power distribution, ionization balance, particle heat transfer, and electron kinetics in a dusty plasma environment. 
 
+The models is capable of predicting the temperature and floating potential of particles dispersed within a plasma as well as electron emission frequency from each particles due to field-assisted thermionic emission and photoemission. 
+
 
