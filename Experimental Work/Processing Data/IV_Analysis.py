@@ -8,9 +8,18 @@ import glob
 ########
 # Inputs:
 R = 330           # Tungsten Probe Resistance (ohm)
+# For a dusty plasma, the probe length has to be longer 10.0-12.0 mm. Therefore, signal intensity is higher. 
+# You should use 330 Ohm resistor. For a pristine plasma, the probe length has to be shorter 5.0 mm. 
+# Therefore, signal intensity is lower, and you can use 30 Ohm resistor. 
 M = 1             # Amplification Parameter
+# When a plasma is pristine and sustained at 50+ W, the signal intensity is very high. So, on the differential amplifier,
+# we divide the signal by 10. When processing that data, set M to 10. For powers below 50W or under dusty condition, 
+# signal is relatively low. So, on the differential amplifier, you set the signal to 1x. When processing that data,
+# you need to set M to 1. 
 D = 0.000127      # Probe Diameter [m]
+# This is just the probe diameter, don't touch it.
 L = 0.01081       # Probe Height [m]
+# Measure the length of the probe tip with an electronic caliper. 
 ########
 T_e = []
 n_e = []
@@ -18,7 +27,8 @@ n_i = []
 EEP_F = []
 E_f = []
 #########
-path_dir = r'/Users/scienceman/Desktop/Probe/'
+# Creat a folder on your desktop and call it "Probe". For example, the path directory should looks like this: /Users/scienceman/Desktop/Probe/
+path_dir = r'path_directory'
 files = glob.glob(path_dir + '/*.csv')
 for f in files:
     print('___________________________________')
@@ -112,6 +122,9 @@ for f in files:
         break
     
     b = abs(popt[1])
+    # If you only have argon plasma, the dominant ion is Ar. 
+    # If you have argon-H2 plasma, the dominant ion is H3+ since they have a smaller mass with respect to argon. 
+    # Please choose ion mass, mi, carefully. 
     #mi = 6.6335209E-26      # Mass of Ar [kg]
     mi = 3*1.6735575E-27   # Mass of H3+ [kg]
     ni = (b * np.sqrt(mi)) / (2 * e * (D/2) * L * np.sqrt(2*e))
