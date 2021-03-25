@@ -2,7 +2,7 @@
 
 
 
-# Experimental Work
+# Experiments
 
 A Langmuir probe is employed to take measurements at various pressures in an argon-hydrogen nonthermal plasma dosed with Copper nanoparticles. 
 
