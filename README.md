@@ -6,4 +6,6 @@ Th model consists of four modules which iteratively solve for plasma parameters 
 
 The models is capable of predicting the temperature and floating potential of particles dispersed within a plasma as well as electron emission frequency from each particles due to field-assisted thermionic emission and photoemission. 
 
+Please read our paper first to fully grasp the physics of dusty plasmas. 
+
 
